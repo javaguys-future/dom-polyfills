@@ -1,10 +1,17 @@
 // Let's start!
 
+// this method empties the certain element, removes all children
+
 Element.prototype.empty = function () {
   while (this.firstChild) {
     this.removeChild(this.firstChild);
   }
 }
+
+/*
+  searches closest element (this method is new Standard and ain't capable for old browsers)
+  and that's why I did create it
+  */
 
 Element.prototype.closest = function (selector) {
   if (selector[0] == '.') {
@@ -18,7 +25,7 @@ Element.prototype.closest = function (selector) {
     }
 
     return null;
-    
+
   } else if (selector[0] == '#') {
     var idName = selector.slice(1);
     if (this.parentNode && this.parentNode.hasAttribute('id') && this.parentNode.id == idName) {
